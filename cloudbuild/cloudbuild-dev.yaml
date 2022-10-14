@@ -1,0 +1,18 @@
+---
+logsBucket: "gs://${PROJECT_ID}/logs/cloudbuild"
+steps:
+- id: '[dev] Terraform'
+  name: "${_AR_LOCATION}-docker.pkg.dev/${PROJECT_ID}/infrastructure/terraform:${_TERRAFORM_BUILDER_TAG}"
+  dir: terraform/003_dev
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+      [[ "${_BUILD_DEV}" == "false" ]] && exit 0
+      terraform init && \
+      terraform plan -input=false -out=tfplan && \
+      terraform apply tfplan
+substitutions:
+  _BUILD_DEV: "true"
+tags:
+- dev

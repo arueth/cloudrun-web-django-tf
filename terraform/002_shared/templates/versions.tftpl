@@ -1,0 +1,29 @@
+terraform {
+  backend "gcs" {
+    bucket  = "${google_storage_bucket_name}"
+    prefix  = "terraform/shared/state"
+  }
+
+  required_providers {
+    google = {
+      version = "4.47.0"
+    }
+    google-beta = {
+      version = "4.47.0"
+    }
+  }
+
+  required_version  = "~> 1.3.5"
+}
+ 
+provider "google" {
+  project = var.google_project_id_shared
+  region  = var.google_region_shared
+  zone    = var.google_zone_shared
+}
+
+provider "google-beta" {
+  project = var.google_project_id_shared
+  region  = var.google_region_shared
+  zone    = var.google_zone_shared
+}

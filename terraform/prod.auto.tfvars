@@ -1,0 +1,6 @@
+cloudrun_image_tag_prod       = ""
+google_billing_account_prod   = "<Production Billing Account ID>"
+google_project_folder_id_prod = "<Production Project's Folder ID>"
+google_project_id_prod        = "<Production Project ID>"
+google_region_prod            = "<Production Default Region>"
+google_zone_prod              = "<Production Default Zone>"

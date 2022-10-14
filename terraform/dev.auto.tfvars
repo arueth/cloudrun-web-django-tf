@@ -1,0 +1,6 @@
+cloudrun_image_tag_dev       = ""
+google_billing_account_dev   = "<Development Billing Account ID>"
+google_project_folder_id_dev = "<Development Project's Folder ID>"
+google_project_id_dev        = "<Development Project ID>"
+google_region_dev            = "<Development Default Region>"
+google_zone_dev              = "<Development Default Zone>"

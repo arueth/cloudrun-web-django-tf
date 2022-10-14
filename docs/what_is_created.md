@@ -1,0 +1,54 @@
+# What is created
+
+Projects
+
+- web-shared(`google_project_id_shared`)
+  - 1 x [Artifact Registry](https://cloud.google.com/artifact-registry) container image repository
+    - `web`
+  - 5 x [Cloud Build](https://cloud.google.com/build) triggers
+    - `django-build`
+    - `terraform-build-shared`
+    - `terraform-build-dev`
+    - `terraform-build-stage`
+    - `terraform-build-prod`
+  - 2 x [Cloud Source Repositories](https://cloud.google.com/source-repositories)
+    - `infrastructure/terraform`
+    - `web/django`
+  - 1 x [Cloud Storage](https://cloud.google.com/storage) bucket
+    - `google_project_id_shared`
+  - 2 x [Service Accounts](https://cloud.google.com/iam/docs/service-accounts)
+    - `application-builder`
+    - `terraform-builder-shared`
+- web-dev(`google_project_id_dev`)
+  - 1 x [Cloud Run](https://cloud.google.com/run) service
+    - `web-django`
+  - 1 x [Cloud SQL](https://cloud.google.com/sql) PostgreSQL instance
+    - `web`
+  - 2 x [Secret Manager](https://cloud.google.com/secret-manager) secrets
+    - `django_settings`
+    - `django_admin_password`
+  - 2 x [Service Accounts](https://cloud.google.com/iam/docs/service-accounts)
+    - `terraform-builder-dev`
+    - `web-dev`
+- web-stage(`google_project_id_stage`)
+  - 1 x [Cloud Run](https://cloud.google.com/run) service
+    - `web-django`
+  - 1 x [Cloud SQL](https://cloud.google.com/sql) PostgreSQL instance
+    - `web`
+  - 2 x [Secret Manager](https://cloud.google.com/secret-manager) secrets
+    - `django_settings`
+    - `django_admin_password`
+  - 2 x [Service Accounts](https://cloud.google.com/iam/docs/service-accounts)
+    - `terraform-builder-stage`
+    - `web-stage`
+- web-prod(`google_project_id_prod`)
+  - 1 x [Cloud Run](https://cloud.google.com/run) service
+    - `web-django`
+  - 1 x [Cloud SQL](https://cloud.google.com/sql) PostgreSQL instance
+    - `web`
+  - 2 x [Secret Manager](https://cloud.google.com/secret-manager) secrets
+    - `django_settings`
+    - `django_admin_password`
+  - 2 x [Service Accounts](https://cloud.google.com/iam/docs/service-accounts)
+    - `terraform-builder-prod`
+    - `web-prod`

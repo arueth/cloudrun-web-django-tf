@@ -1,0 +1,13 @@
+---
+logsBucket: "gs://${PROJECT_ID}/logs/cloudbuild"
+tags:
+  - build
+steps:
+  - name: "gcr.io/kaniko-project/executor:v1.8.1-slim"
+    id: "build-image"
+    args:
+    - --context=dockerfile/
+    - --destination=${_AR_LOCATION}-docker.pkg.dev/${PROJECT_ID}/infrastructure/terraform:${_TERRAFORM_BUILDER_TAG}
+    - --dockerfile=dockerfile/Dockerfile
+    - --cache=true
+    - --cache-ttl=12h
